@@ -1,0 +1,23 @@
+{
+    "name": "huyingkeji/qdgcommissionsdk",
+    "description": "qdg",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "HuYingKeJi\\Qdgcommissionsdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "https://www.whuying.com/"
+        }
+    ],
+    "require": {},
+    "bin": [
+        "bin/PublicKey.php"
+    ],
+    "scripts": {
+        "v3-certificates": "bin/PublicKey.php"
+    }
+}
