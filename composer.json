@@ -13,7 +13,12 @@
             "name": "https://www.whuying.com/"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*"
+    },
     "bin": [
         "bin/PublicKey.php"
     ],

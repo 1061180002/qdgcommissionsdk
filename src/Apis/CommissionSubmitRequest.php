@@ -13,6 +13,11 @@ namespace HuYingKeJi\Qdgcommissionsdk\Apis;
 
 use HuYingKeJi\Qdgcommissionsdk\CommissionReqInterface;
 
+/**
+ * NameSpace: HuYingKeJi\Qdgcommissionsdk\Apis
+ * ClassName: CommissionSubmitRequest
+ * 描述:提交佣金类
+ */
 class CommissionSubmitRequest implements CommissionReqInterface {
     private array $apiParams = [];
     private string $uri = "/qdg/submit_commission";

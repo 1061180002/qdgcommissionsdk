@@ -25,7 +25,7 @@ class Http {
      * @return bool|string
      * @throws \HuYingKeJi\Qdgcommissionsdk\Exceptions\CommissionSdkHttpException
      */
-    public static function httpGet(string $url, array $data=[], array $header = []) {
+    public static function httpGet(string $url, array $data = [], array $header = []) {
         return self::httpRequest("get", $url, $data, $header);
     }
 
@@ -36,11 +36,12 @@ class Http {
      * @return bool|string
      * @throws \HuYingKeJi\Qdgcommissionsdk\Exceptions\CommissionSdkHttpException
      */
-    public static function httpPost(string $url, array $data=[], array $header = []) {
+    public static function httpPost(string $url, array $data = [], array $header = []) {
         return self::httpRequest("post", $url, $data, $header);
     }
 
     /**
+     * http请求类
      * @param string $method
      * @param string $url
      * @param array $data
@@ -60,7 +61,7 @@ class Http {
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         if ("post" === strtolower($method)) {
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data,256));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["content" => $data], 256));
             curl_setopt($ch, CURLOPT_URL, $url);
         } else {
             curl_setopt($ch, CURLOPT_URL, $url . "?" . http_build_query($data));
@@ -74,6 +75,9 @@ class Http {
         $errcode = curl_errno($ch);
         $curlInfo = curl_getinfo($ch);
         if ($curlInfo['http_code'] !== 200) {
+            foreach ($curlInfo as $k => $v) {
+                echo $k . "====>" . $v . "\n";
+            }
             curl_close($ch);
             throw new CommissionSdkHttpException($errmsg ?: "响应出现错误!请检查参数设置");
         }

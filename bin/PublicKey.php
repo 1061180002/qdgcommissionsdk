@@ -72,6 +72,7 @@ function httpRequest($appid, $secret) {
     curl_setopt($ch, CURLOPT_HEADER, [
         "Content-Type: application/json",
         "Accept: application/json",
+
     ]);
     $resp = curl_exec($ch);
     $errmsg = curl_error($ch);
